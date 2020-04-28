@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgh.mapper.IStudentMapper">
+    <resultMap id="BaseResultMap" type="com.lgh.entity.Student">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+    </resultMap>
+    <select id="selectCount" resultType="int">
+        select count(*) from student
+    </select>
+    <select id="selectList" resultType="com.lgh.entity.Student">
+        select * from student limit #{startIndex},#{pageSize}
+    </select>
+</mapper>
